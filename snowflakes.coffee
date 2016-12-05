@@ -19,8 +19,8 @@ class Flake
 		@a = 0
 
 	draw : ->
-		fc @gray,@gray,@gray,0.9
-		sc()
+		sc @gray,@gray,@gray,0.9
+		fc()
 		sw @size*0.1
 		push()
 		translate @x,@y	
@@ -32,19 +32,21 @@ class Flake
 		triangle x,-y, -x,-y, 0,@size
 		pop()
 		@y += @vy
-		@y = -100 if @y>height+@size
+		if @y>height+@size
+			@y = -@size 
+			@x = random width
 		@x += random(-0.2,0.2)
 
 setup = ->
 	createCanvas 1920,1200
 	for i in range 10
-		size = lerp 1,2,i
+		size = lerp 1,2.5,i
 		gray = lerp 0.1,0.2,i
 		vx = lerp -0.2,0.2,i
-		vy = lerp 1,2,i
+		vy = lerp 0.1,2,i
 		antal = lerp 10,9,i
-		for j in range antal*antal
-			flakes.push new Flake random(width),random(height),size*size,gray,vx,vy,random(-0.5,0.5)
+		for j in range antal #*antal
+			flakes.push new Flake random(width),random(height),size*size,gray,vx,vy,random(-1,1)
 	for i in range 100
 		stars.push new Star random(width),random(height),random(1,2),random(1),random(10)
 
