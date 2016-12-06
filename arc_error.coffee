@@ -1,24 +1,9 @@
+tree = [3, [5,6], [7,8,10,12], [4,9,14,[20,24]], [[12,13],14]]
 
+summa = (tree) -> 
+	return 0 if _.isEqual tree,[]
+	return tree if _.isNumber tree 
+	s = summa _.head tree
+	s + summa _.tail tree 
 
-setup = ->
-	createCanvas 1000,1000
-
-draw = ->
-	bg 0
-	translate width/2, height/2
-	x1 = -5
-	y1 = 0
-
-	x2 = 0
-	y2 = -5
-
-	start = - HALF_PI + atan2 x1,y1
-	stopp = - HALF_PI + atan2 x2,y2
-	draw_arc start,stopp,9,1,1,1
-	draw_arc start,stopp,5,1,0,0
-
-draw_arc = (start,stopp,w,r,g,b) ->
-	fc()
-	sc r,g,b
-	sw w
-	arc 0,0,500,500, stopp, start
+console.log summa tree
