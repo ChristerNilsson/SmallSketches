@@ -7,7 +7,7 @@ setup = function() {
 
 draw = function() {
   var i, j, k, l, len, len1, ref, ref1, results, t, x;
-  t = frameCount/10000;
+  t = frameCount/100;
   rotateX(mouseY * 0.005);
   rotateY(mouseX * 0.002);
   ref = range(5);
