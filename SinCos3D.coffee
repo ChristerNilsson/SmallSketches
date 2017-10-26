@@ -1,7 +1,7 @@
 # LOC:12 frameCount push pop range rotateZ sin sphere translate
 setup = -> createCanvas 1800, 1000, WEBGL
 draw = ->
-  t = frameCount/100 
+  t = frameCount /100 
   rotateX mouseY * 0.005
   rotateY mouseX * 0.002 
   for j in range 5
